@@ -1,9 +1,9 @@
 #import <Cocoa/Cocoa.h>
-#import <SceneKit/SceneKit.h>
 
 #include "Cube.h"
+#include "Cube_scene.h"
 
-@implementation Cubes_app
+@implementation Cube_app
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -26,6 +26,11 @@
 	[menu_bar addItem:app_item];
 	[app_item setSubmenu:app_menu];
 	[NSApp setMainMenu:menu_bar];
+
+	Cube_scene *s = [Cube_scene new];
+	s.frame = ((NSView*)self.window.contentView).frame;
+
+	[self.window.contentView addSubview:s];
 	[self.window makeKeyAndOrderFront:NSApp];
 	[NSApp activateIgnoringOtherApps:YES];
 }

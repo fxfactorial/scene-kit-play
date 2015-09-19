@@ -15,7 +15,7 @@ int main (int argc, char **argv)
 	NSApplication *app = [NSApplication sharedApplication];
 	// Critical to have this so that you can add menus
 	[NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
-	Cubes_app *gar_app = [Cubes_app new];
+	Cube_app *gar_app = [Cube_app new];
 	app.delegate = gar_app;
 	[NSApp run];
 }
