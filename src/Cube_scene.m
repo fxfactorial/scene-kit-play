@@ -34,6 +34,15 @@
 									height:1.5
 									length:1.5
 					 chamferRadius:0];
+	SCNMaterial *m = [SCNMaterial material];
+	NSImage *me_image = [NSImage imageNamed:@"blog_me"];
+	m.diffuse.contents = me_image;
+	// m.diffuse.contents = [NSColor blueColor];
+	m.specular.contents = [NSColor whiteColor];
+
+	m.shininess = 2.0;
+
+	cube_geometry.materials = @[m];
 	SCNNode *cube_node = [SCNNode nodeWithGeometry:cube_geometry];
 
 	SCNLookAtConstraint *constraint =
@@ -47,11 +56,13 @@
 	plane_node.eulerAngles = (SCNVector3){.x = GLKMathDegreesToRadians(-90),
 																				.y = 0,
 																				.z = 0};
+
 	[s.rootNode addChildNode:light_node];
 	[s.rootNode addChildNode:camera_node];
 	[s.rootNode addChildNode:cube_node];
 	[s.rootNode addChildNode:plane_node];
 	self.scene = s;
+	self.allowsCameraControl = YES;
 }
 
 @end
