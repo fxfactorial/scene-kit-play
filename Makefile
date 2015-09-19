@@ -1,4 +1,5 @@
-frameworks := -framework AppKit -framework Foundation -framework SceneKit
+frameworks := -framework AppKit -framework Foundation \
+	      -framework SceneKit -framework GLKit
 src := src/Cube_scene.m src/Cube.m src/main.m
 
 all:
